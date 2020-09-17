@@ -38,7 +38,7 @@ as.numeric(pull(prob1_df, char_vector))
 as.numeric(pull(prob1_df, fac_vector))
 ```
 The as.numeric function works for logical and factor but not character.
-This means character variables do not have default value in R.
+This means character variables do not have default value in R. For factor variables, they have default value in R, so I can get a numeric value when i use as.numeric function for factor variables. But in the real world, factor variables do not have default value applied to them. So i can not get the mean value of factor variables. For character variables, no default value are applied to them in R or in the real world.So I can not use mean function or even as.numeric function to character variables.
 
 Calculations:
 ```{r}
@@ -46,5 +46,8 @@ as.numeric(pull(prob1_df, sample_greater_0))*pull(prob1_df, sample)
 as.factor(pull(prob1_df, sample_greater_0))*pull(prob1_df, sample)
 as.numeric(as.factor(pull(prob1_df, sample_greater_0)))*pull(prob1_df, sample)
 ```
+
+##Problem2
+
 
 
