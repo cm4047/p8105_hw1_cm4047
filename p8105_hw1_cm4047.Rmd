@@ -29,6 +29,8 @@ mean(pull(prob1_df,sample_greater_0))
 mean(pull(prob1_df,char_vector))
 mean(pull(prob1_df,fac_vector))
 ```
+The mean function works for numbers and logical but not charactor or factor.
+
 
 
 ```{r setup, include=FALSE}
