@@ -75,5 +75,17 @@ The categories of sex are `r levels(pull(penguins, sex))`.
 The size of the data set is `r nrow(penguins)` rows and `r ncol(penguins)` columns.  
 The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`.
 
+Make a scatterplot of flipper_length_mm VS bill_length_mm:
+
+```{r}
+ggplot(penguins, aes(x = pull(penguins, bill_length_mm), y = pull(penguins, flipper_length_mm), color = pull(penguins, species))) + geom_point(na.rm = TRUE)
+```
+
+Export my first scatterplot to my project directory:
+
+```{r}
+ggsave('scatterplot_penguins.pdf', height = 4, width = 6)
+```
+
 
 
