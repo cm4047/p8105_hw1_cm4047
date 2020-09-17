@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "HW1"
 author: "Chen Mo"
 date: "9/18/2020"
 output: github_document
@@ -21,6 +21,15 @@ prob1_df = tibble(
         fac_vector = factor(c("small", "small", "samll", "medium", "medium", "medium", "large", "large", "large", "large"))
 )
 ```
+
+Take the mean of each variable in my data frame:
+```{r}
+mean(pull(prob1_df,sample))
+mean(pull(prob1_df,sample_greater_0))
+mean(pull(prob1_df,char_vector))
+mean(pull(prob1_df,fac_vector))
+```
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
