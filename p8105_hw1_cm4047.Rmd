@@ -40,4 +40,11 @@ as.numeric(pull(prob1_df, fac_vector))
 The as.numeric function works for logical and factor but not character.
 This means character variables do not have default value in R.
 
+Calculations:
+```{r}
+as.numeric(pull(prob1_df, sample_greater_0))*pull(prob1_df, sample)
+as.factor(pull(prob1_df, sample_greater_0))*pull(prob1_df, sample)
+as.numeric(as.factor(pull(prob1_df, sample_greater_0)))*pull(prob1_df, sample)
+```
+
 
