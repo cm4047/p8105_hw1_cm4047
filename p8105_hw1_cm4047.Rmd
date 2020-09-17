@@ -12,7 +12,9 @@ library(tidyverse)
 ```
 
 ##Problem 1
+
 Create a data frame:
+
 ```{r}
 prob1_df = tibble(
         sample = rnorm(10),
@@ -23,24 +25,29 @@ prob1_df = tibble(
 ```
 
 Take the mean of each variable in my data frame:
+
 ```{r}
 mean(pull(prob1_df, sample))
 mean(pull(prob1_df, sample_greater_0))
 mean(pull(prob1_df, char_vector))
 mean(pull(prob1_df, fac_vector))
 ```
+
 The mean function works for numbers and logical but not character or factor.
 
 Use as.numeric function to convert variables from one type to another
+
 ```{r}
 as.numeric(pull(prob1_df, sample_greater_0))
 as.numeric(pull(prob1_df, char_vector))
 as.numeric(pull(prob1_df, fac_vector))
 ```
+
 The as.numeric function works for logical and factor but not character.
 This means character variables do not have default value in R. For factor variables, they have default value in R, so I can get a numeric value when i use as.numeric function for factor variables. But in the real world, factor variables do not have default value applied to them. So i can not get the mean value of factor variables. For character variables, no default value are applied to them in R or in the real world.So I can not use mean function or even as.numeric function to character variables.
 
 Calculations:
+
 ```{r}
 as.numeric(pull(prob1_df, sample_greater_0))*pull(prob1_df, sample)
 as.factor(pull(prob1_df, sample_greater_0))*pull(prob1_df, sample)
@@ -48,6 +55,25 @@ as.numeric(as.factor(pull(prob1_df, sample_greater_0)))*pull(prob1_df, sample)
 ```
 
 ##Problem2
+
+Load the penguins dataset:
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+Write a short description of the penguins data set:  
+
+The data in this data set including `r names(penguins)`.  
+The value of bill_length_mm ranges from `r max(pull(penguins, bill_length_mm), na.rm = TRUE)` to `r min(pull(penguins, bill_length_mm), na.rm = TRUE)`.  
+The value of bill_depth_mm ranges from `r max(pull(penguins, bill_depth_mm), na.rm = TRUE)` to `r min(pull(penguins, bill_depth_mm), na.rm = TRUE)`.  
+The value of flipper_length_mm ranges from `r max(pull(penguins, flipper_length_mm), na.rm = TRUE)` to `r min(pull(penguins, flipper_length_mm), na.rm = TRUE)`.  
+The value of body_mass_g ranges from `r max(pull(penguins, body_mass_g), na.rm = TRUE)` to `r min(pull(penguins, body_mass_g), na.rm = TRUE)`.  
+The value of year ranges from `r max(pull(penguins, year), na.rm = TRUE)` to `r min(pull(penguins, year), na.rm = TRUE)`.  
+The categories of species are `r levels(pull(penguins, species))`.  
+The categories of island are `r levels(pull(penguins, island))`.  
+The categories of sex are `r levels(pull(penguins, sex))`.  
+The size of the data set is `r nrow(penguins)` rows and `r ncol(penguins)` columns.  
+The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`.
 
 
 
