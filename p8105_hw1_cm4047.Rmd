@@ -5,6 +5,23 @@ date: "9/18/2020"
 output: github_document
 ---
 
+This is my solution to HW1
+
+```{r}
+library(tidyverse)
+```
+
+##Problem 1
+Create a data frame:
+```{r}
+prob1_df = tibble(
+        sample = rnorm(10),
+        sample_greater_0 = sample > 0,
+        char_vector = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+        fac_vector = factor(c("small", "small", "samll", "medium", "medium", "medium", "large", "large", "large", "large"))
+)
+```
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
